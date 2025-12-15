@@ -1,0 +1,92 @@
+<launch>
+    <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_trajectory_crescent.yaml" command="load"/>
+    <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_all_trajectories.yaml" command="load"/>
+    <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_trajectory_hover.yaml" command="load"/>
+    <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_trajectory_pid_tuning.yaml" command="load"/>
+
+    <!-- Drone 1 -->
+    <group ns="drone1">
+        <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_trajectory_manager_drone1.yaml" command="load"/>
+        <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_quadcopter_params_1.yaml" command="load"/>
+        <param name="initial_x" value="0.0"/>
+        <param name="initial_y" value="0.0"/>
+        <param name="initial_z" value="0.0"/>
+        <node name="SE3_waypoint_server" pkg="multi_quadcopter_geometric_control" type="SE3_multi_waypoint_server_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_trajectory_generator" pkg="multi_quadcopter_geometric_control" type="SE3_multi_trajectory_generator_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_mid_level_cont" pkg="multi_quadcopter_geometric_control" type="SE3_multi_mid_level_cont_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_low_level_cont" pkg="multi_quadcopter_geometric_control" type="SE3_multi_low_level_cont_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_eom" pkg="multi_quadcopter_geometric_control" type="SE3_multi_eom" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_rviz_data_handler" pkg="multi_quadcopter_geometric_control" type="SE3_multi_rviz_data_handler" output="screen" launch-prefix="nice -n -5"/>
+        <param name="robot_description" command="$(find xacro)/xacro $(find multi_quadcopter_geometric_control)/urdf/quad_model_v2.urdf" />
+    </group>
+
+    <!-- Drone 2 -->
+    <group ns="drone2">
+        <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_trajectory_manager_drone2.yaml" command="load"/>
+        <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_quadcopter_params_2.yaml" command="load"/>
+        <param name="initial_x" value="-2.0"/>
+        <param name="initial_y" value="2.0"/>
+        <param name="initial_z" value="0.0"/>
+        <node name="SE3_waypoint_server" pkg="multi_quadcopter_geometric_control" type="SE3_multi_waypoint_server_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_trajectory_generator" pkg="multi_quadcopter_geometric_control" type="SE3_multi_trajectory_generator_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_mid_level_cont" pkg="multi_quadcopter_geometric_control" type="SE3_multi_mid_level_cont_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_low_level_cont" pkg="multi_quadcopter_geometric_control" type="SE3_multi_low_level_cont_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_eom" pkg="multi_quadcopter_geometric_control" type="SE3_multi_eom" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_rviz_data_handler" pkg="multi_quadcopter_geometric_control" type="SE3_multi_rviz_data_handler" output="screen" launch-prefix="nice -n -5"/>
+        <param name="robot_description" command="$(find xacro)/xacro $(find multi_quadcopter_geometric_control)/urdf/quad_model_v1.urdf" />
+    </group>
+
+    <!-- Drone 3 -->
+    <group ns="drone3">
+        <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_trajectory_manager_drone3.yaml" command="load"/>
+        <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_quadcopter_params_2.yaml" command="load"/>
+        <param name="initial_x" value="2.0"/>
+        <param name="initial_y" value="2.0"/>
+        <param name="initial_z" value="0.0"/>
+        <node name="SE3_waypoint_server" pkg="multi_quadcopter_geometric_control" type="SE3_multi_waypoint_server_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_trajectory_generator" pkg="multi_quadcopter_geometric_control" type="SE3_multi_trajectory_generator_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_mid_level_cont" pkg="multi_quadcopter_geometric_control" type="SE3_multi_mid_level_cont_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_low_level_cont" pkg="multi_quadcopter_geometric_control" type="SE3_multi_low_level_cont_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_eom" pkg="multi_quadcopter_geometric_control" type="SE3_multi_eom" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_rviz_data_handler" pkg="multi_quadcopter_geometric_control" type="SE3_multi_rviz_data_handler" output="screen" launch-prefix="nice -n -5"/>
+        <param name="robot_description" command="$(find xacro)/xacro $(find multi_quadcopter_geometric_control)/urdf/quad_model_v1.urdf" />
+    </group>
+
+    <!-- Drone 4 -->
+    <group ns="drone4">
+        <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_trajectory_manager_drone4.yaml" command="load"/>
+        <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_quadcopter_params_2.yaml" command="load"/>
+        <param name="initial_x" value="4.0"/>
+        <param name="initial_y" value="4.0"/>
+        <param name="initial_z" value="0.0"/>
+        <node name="SE3_waypoint_server" pkg="multi_quadcopter_geometric_control" type="SE3_multi_waypoint_server_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_trajectory_generator" pkg="multi_quadcopter_geometric_control" type="SE3_multi_trajectory_generator_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_mid_level_cont" pkg="multi_quadcopter_geometric_control" type="SE3_multi_mid_level_cont_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_low_level_cont" pkg="multi_quadcopter_geometric_control" type="SE3_multi_low_level_cont_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_eom" pkg="multi_quadcopter_geometric_control" type="SE3_multi_eom" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_rviz_data_handler" pkg="multi_quadcopter_geometric_control" type="SE3_multi_rviz_data_handler" output="screen" launch-prefix="nice -n -5"/>
+        <param name="robot_description" command="$(find xacro)/xacro $(find multi_quadcopter_geometric_control)/urdf/quad_model_v1.urdf" />
+    </group>
+
+    <!-- Drone 5 -->
+    <group ns="drone5">
+        <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_trajectory_manager_drone5.yaml" command="load"/>
+        <rosparam file="$(find multi_quadcopter_geometric_control)/config/SE3_quadcopter_params_2.yaml" command="load"/>
+        <param name="initial_x" value="-4.0"/>
+        <param name="initial_y" value="4.0"/>
+        <param name="initial_z" value="0.0"/>
+        <node name="SE3_waypoint_server" pkg="multi_quadcopter_geometric_control" type="SE3_multi_waypoint_server_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_trajectory_generator" pkg="multi_quadcopter_geometric_control" type="SE3_multi_trajectory_generator_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_mid_level_cont" pkg="multi_quadcopter_geometric_control" type="SE3_multi_mid_level_cont_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_low_level_cont" pkg="multi_quadcopter_geometric_control" type="SE3_multi_low_level_cont_node" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_eom" pkg="multi_quadcopter_geometric_control" type="SE3_multi_eom" output="screen" launch-prefix="nice -n -5"/>
+        <node name="SE3_rviz_data_handler" pkg="multi_quadcopter_geometric_control" type="SE3_multi_rviz_data_handler" output="screen" launch-prefix="nice -n -5"/>
+        <param name="robot_description" command="$(find xacro)/xacro $(find multi_quadcopter_geometric_control)/urdf/quad_model_v1.urdf" />
+    </group>
+    
+    <!-- Rviz and data node -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find multi_quadcopter_geometric_control)/rviz/quad_rviz.rviz" output="screen"/>
+    <node name="SE3_relative_disturbance_generator" pkg="multi_quadcopter_geometric_control" type="SE3_relative_disturbance_generator" output="screen" launch-prefix="nice -n -5"/>
+    <param name="num_drones" value="5" />
+    <node name="SE3_data_logger" pkg="multi_quadcopter_geometric_control" type="SE3_multi_data_logger" output="screen" launch-prefix="nice -n -5"/>
+</launch>

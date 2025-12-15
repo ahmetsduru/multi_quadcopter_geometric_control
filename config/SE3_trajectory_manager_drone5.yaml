@@ -1,0 +1,29 @@
+trajectory_manager:
+  is_psi_active: true
+  active_trajectories: [
+    "trajectory_random",
+    "trajectory_random_1", 
+    "trajectory_random_2_5", 
+    "trajectory_random_3_5"
+  ]  
+  available_trajectory:
+    - name: "trajectory_random"
+      file: "SE3_all_trajectories.yaml"
+    - name: "trajectory_random_1"
+      file: "SE3_all_trajectories.yaml"
+    - name: "trajectory_random_2"
+      file: "SE3_all_trajectories.yaml"
+    - name: "trajectory_random_3"
+      file: "SE3_all_trajectories.yaml"
+    - name: "trajectory_random_2_4"
+      file: "SE3_all_trajectories.yaml"
+    - name: "trajectory_random_2_5"
+      file: "SE3_all_trajectories.yaml"
+    - name: "trajectory_random_3_2"
+      file: "SE3_all_trajectories.yaml"
+    - name: "trajectory_random_3_3"
+      file: "SE3_all_trajectories.yaml"
+    - name: "trajectory_random_3_4"
+      file: "SE3_all_trajectories.yaml"
+    - name: "trajectory_random_3_5"
+      file: "SE3_all_trajectories.yaml"
